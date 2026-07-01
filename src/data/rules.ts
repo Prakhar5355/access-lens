@@ -1,0 +1,40 @@
+import { RuleMeta } from '../types';
+
+export const WCAG_RULES: Record<string, RuleMeta> = {
+  'image-alt':                   { title: 'Images missing alt text', wcag: '1.1.1 (A)', help: 'All meaningful images must have descriptive alt attributes. Decorative images should use alt="".', impact: 'critical' },
+  'input-image-alt':             { title: 'Input images missing alt text', wcag: '1.1.1 (A)', help: '<input type="image"> elements must have an alt attribute describing the button action.', impact: 'critical' },
+  'video-caption':               { title: 'Videos missing captions', wcag: '1.2.2 (A)', help: 'All pre-recorded video with audio must have synchronised captions.', impact: 'critical' },
+  'audio-caption':               { title: 'Audio content missing captions', wcag: '1.2.2 (A)', help: 'All pre-recorded audio must have a text transcript or caption track.', impact: 'critical' },
+  'color-contrast':              { title: 'Insufficient colour contrast', wcag: '1.4.3 (AA)', help: 'Text must have a contrast ratio of at least 4.5:1 (normal text) or 3:1 (large text) against its background.', impact: 'critical' },
+  'meta-viewport':               { title: 'Viewport zoom disabled', wcag: '1.4.4 (AA)', help: 'The meta viewport tag must not include user-scalable=no, which prevents users from zooming.', impact: 'serious' },
+  'region':                      { title: 'Content outside landmark regions', wcag: '1.3.1 (A)', help: 'All page content should be contained within landmark elements such as <header>, <main>, <nav>, or <footer>.', impact: 'moderate' },
+  'heading-order':               { title: 'Heading levels skipped', wcag: '1.3.1 (A)', help: 'Headings should follow a logical order (h1 → h2 → h3) without skipping levels.', impact: 'moderate' },
+  'autocomplete-valid':          { title: 'Autocomplete attribute invalid', wcag: '1.3.5 (AA)', help: 'Input autocomplete values must match the tokens listed in the HTML specification.', impact: 'moderate' },
+  'label':                       { title: 'Form inputs missing labels', wcag: '1.3.1 (A), 4.1.2 (A)', help: 'Every input must be associated with a visible <label> or an aria-label / aria-labelledby attribute.', impact: 'critical' },
+  'select-name':                 { title: '<select> missing accessible name', wcag: '4.1.2 (A)', help: 'Select elements need an associated <label> or aria-label so screen readers can describe them.', impact: 'critical' },
+  'document-title':              { title: 'Page missing <title>', wcag: '2.4.2 (A)', help: 'Every page must have a descriptive <title> element so users know where they are.', impact: 'serious' },
+  'skip-link':                   { title: 'No skip navigation link', wcag: '2.4.1 (A)', help: 'Pages with repeated navigation should provide a "skip to main content" link as the first focusable element.', impact: 'moderate' },
+  'link-name':                   { title: 'Links have no discernible text', wcag: '2.4.4 (A)', help: 'Links must have descriptive text so screen reader users understand their purpose.', impact: 'serious' },
+  'empty-heading':               { title: 'Heading elements are empty', wcag: '2.4.6 (AA)', help: 'Heading elements must contain text content so screen readers can announce them meaningfully.', impact: 'moderate' },
+  'html-has-lang':               { title: '<html> missing lang attribute', wcag: '3.1.1 (A)', help: 'The <html> element must include a lang attribute to identify the page language for assistive technologies.', impact: 'serious' },
+  'html-lang-valid':             { title: 'Invalid language code on <html>', wcag: '3.1.1 (A)', help: 'The lang attribute value must be a valid BCP 47 language tag (e.g. en, fr, es).', impact: 'serious' },
+  'tabindex':                    { title: 'Positive tabindex values used', wcag: '2.4.3 (A)', help: 'tabindex values greater than 0 disrupt natural focus order. Use 0 or -1 only.', impact: 'moderate' },
+  'scrollable-region-focusable': { title: 'Scrollable region not keyboard-accessible', wcag: '2.1.1 (A)', help: 'Elements that scroll must be reachable via keyboard so users without a mouse can access all content.', impact: 'serious' },
+  'focus-trap':                  { title: 'Keyboard focus trap detected', wcag: '2.1.2 (A)', help: 'Keyboard users must not be trapped inside a component. Provide a way to move focus out.', impact: 'critical' },
+  'button-name':                 { title: 'Buttons have no accessible name', wcag: '4.1.2 (A)', help: 'Buttons must have visible text or an aria-label so their purpose is clear.', impact: 'critical' },
+  'duplicate-id':                { title: 'Duplicate IDs found', wcag: '4.1.1 (A)', help: 'Each id attribute value must be unique — duplicate IDs break ARIA relationships.', impact: 'serious' },
+  'aria-required-attr':          { title: 'Required ARIA attributes missing', wcag: '4.1.2 (A)', help: 'ARIA roles require specific attributes. For example, role="checkbox" requires aria-checked.', impact: 'critical' },
+  'aria-valid-attr-value':       { title: 'Invalid ARIA attribute value', wcag: '4.1.2 (A)', help: 'ARIA attributes must have values that conform to the WAI-ARIA specification.', impact: 'serious' },
+  'aria-roles':                  { title: 'Invalid ARIA role used', wcag: '4.1.2 (A)', help: 'Elements must use only valid, non-abstract ARIA roles defined in the WAI-ARIA specification.', impact: 'serious' },
+  'landmark-one-main':           { title: 'Page missing <main> landmark', wcag: '1.3.6 (AAA)', help: 'Pages should contain exactly one <main> landmark to help screen reader users navigate to main content.', impact: 'moderate' },
+  'td-headers-attr':             { title: 'Table cells reference invalid headers', wcag: '1.3.1 (A)', help: 'Table data cells that reference header cells via the headers attribute must point to valid IDs.', impact: 'serious' },
+  'th-has-data-cells':           { title: 'Table headers have no data cells', wcag: '1.3.1 (A)', help: 'All <th> elements must relate to data cells in the same row or column.', impact: 'moderate' },
+  'summary-name':                { title: '<summary> elements are empty', wcag: '4.1.2 (A)', help: '<details>/<summary> elements must have descriptive text so their purpose is clear when collapsed.', impact: 'moderate' },
+};
+
+export const IMPACT_WEIGHT: Record<string, number> = {
+  critical: 25,
+  serious: 15,
+  moderate: 8,
+  minor: 3,
+};
